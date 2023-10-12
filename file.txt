@@ -1,3 +1,55 @@
+
+php game
+<?php
+// Assuming the correct number is 50 for now. You can randomize this if needed.
+// Variables
+$luckyNumber = 50;
+$alertMessage = "";
+
+if(isset($_GET['guess']) && !empty($_GET['guess']) {
+$guess = (int)$_GET['guess'];
+}
+elseif($guess < $luckyNumber) {
+$alertMessage = "Your guess is too short"; 
+}
+elseif($guess > $luckyNumber) {
+$alertMessage = "Your guess is too high"; 
+}
+elseif(!is_numeric($guess)) {
+$alertMessage = "Your guess must be a number"; 
+}
+
+elseif($guess == $luckyNumber) {
+$alertMessage = "Congratulations  You are right"; 
+}
+
+elseif(is_null($guess)) {
+$alertMessage = "Missing guess parameter"; 
+}
+ 
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diyar Parwana guessing game</title>
+</head>
+<body>
+    <h1>Welcome to my guessing game</h1>
+    <p>
+        <?= $alertMessage ?>
+    </p>
+</body>
+</html>
+ 
+ 
+
+
+
+
+
+
+
 check.php
 <?php 
 echo "<pre>\n";
