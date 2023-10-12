@@ -1,4 +1,5 @@
-<?php
+<?php 
+// 7dfbd0f5
 // Diyar Parwana
 // Variables
 $luckyNumber = 55;
