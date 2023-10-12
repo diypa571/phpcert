@@ -1,9 +1,9 @@
 
 php game
 <?php
-// Assuming the correct number is 50 for now. You can randomize this if needed.
+
 // Variables
-$luckyNumber = 50;
+$luckyNumber = 55;
 $alertMessage = "";
 
 if(isset($_GET['guess']) && !empty($_GET['guess']) {
