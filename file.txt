@@ -1,5 +1,5 @@
 
-php game
+php game guess.php
 <?php
 
 // Variables
