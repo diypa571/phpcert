@@ -1,38 +1,36 @@
-
-php game guess.php
 <?php
-
+// Diyar Parwana
 // Variables
 $luckyNumber = 55;
 $alertMessage = "";
 
-if(isset($_GET['guess']) && !empty($_GET['guess']) {
-$guess = (int)$_GET['guess'];
-}
-elseif($guess < $luckyNumber) {
-$alertMessage = "Your guess is too short"; 
-}
-elseif($guess > $luckyNumber) {
-$alertMessage = "Your guess is too high"; 
-}
-elseif(!is_numeric($guess)) {
-$alertMessage = "Your guess must be a number"; 
-}
+if (isset($_GET['guess'])) {
+    $guess = $_GET['guess'];
 
-elseif($guess == $luckyNumber) {
-$alertMessage = "Congratulations  You are right"; 
-}
+    if (strlen($guess) == 0) {
+        $alertMessage = "Your guess is too short";
+    } elseif (!is_numeric($guess)) {
+        $alertMessage = "Your guess is not a number";
+    } else {
+        $guess = (int) $guess;
 
-elseif(is_null($guess)) {
-$alertMessage = "Missing guess parameter"; 
+        if ($guess < $luckyNumber) {
+            $alertMessage = "Your guess is too low";
+        } elseif ($guess > $luckyNumber) {
+            $alertMessage = "Your guess is too high";
+        } elseif ($guess == $luckyNumber) {
+            $alertMessage = "Congratulations - You are right";
+        }
+    }
+} else {
+    $alertMessage = "Missing guess parameter";
 }
- 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Diyar Parwana guessing game</title>
+    <title>Diyar Parwana - Guessing Game</title>
 </head>
 <body>
     <h1>Welcome to my guessing game</h1>
@@ -41,8 +39,7 @@ $alertMessage = "Missing guess parameter";
     </p>
 </body>
 </html>
- 
- 
+
 
 
 
