@@ -22,8 +22,7 @@
   $hashedInput = "";
 
   if(isset($_GET['md5']) && !empty($_GET['md5'])) {
-  $input = $_GET['md5'];
-  $hashedInput = (string)$_GET['md5'];
+   $hashedInput = (string)$_GET['md5'];
    echo "<hr>";
   }
   echo "<h3> Debug output </h3>";
