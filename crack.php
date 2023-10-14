@@ -1,4 +1,3 @@
-crack.php
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -13,8 +12,8 @@ crack.php
 <h1>Diyar Parwana</h1>
 
 <p> Building Web Applications in PHP <em> University of Michigan </em></p>
-<p> This application takes an MD5 hash of a four digit pin and check all about 10000 possible four digit PINs to determine the PIN. Using md5 for hashing with md5 and reversing  </p>
- 
+<p> This application takes an MD5 hash of a four digit pin and check all about 10000 possible four digit PINs to determine the PIN.Using md5 for hashing with md5 and reversing  </p>
+222 
 <?php
   // Diyar Parwana
   // University of Michigan
@@ -22,28 +21,34 @@ crack.php
   $isFound= false;
   $hashedInput = "";
 
-  if(isset($_GET['md5']) && !empty($_GET['md5'])) {
-        (string)$hashedInput = md5($inputValue);
-        echo "<hr>";
-      echo $hashedInput;
-      echo "<hr>";
-      $hasInput=true;
-  }
-  else {
-        $inputValue = "";
-        $hasInput=false;
-  }
+    if(isset($_GET['md5']) && !empty($_GET['md5'])) {
+    $hashedInput = (string)$_GET['md5'];
+    echo    $hashedInput = md5($inputValue);
+    echo " <br>";
+    echo    $hashedInput = md5((int)$_GET['md5']);
+    echo "<hr>";
+    }
+
 
   echo "<h3> Debug output </h3>";
   $startTime = microtime(true);
+
+  // Creating a loop
   for ($x = 0; $x <= 9999; $x++) {
 
-    $x=str_pad($x, 4, '0', STR_PAD_LEFT);
+
+    // For the 4 digits
+  /*  while (strlen($x) < 4) {
+        $x = '0'.$x;
+    }
+    */
+    // A better alternative instead of my while loop is str_pad
+     $x=str_pad($x, 4, '0', STR_PAD_LEFT);
 
     // Diysplay the first 15 rows
     $md5hash=hash('md5',$x);
-    if($x<=15){
-    echo "$md5hash  $x <br>";
+    if($x<=10000){
+    echo "$md5hash $x<br>";
     }
 
     if ($md5hash == $_GET["md5"]){
